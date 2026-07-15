@@ -18,6 +18,8 @@ permissions:
 env:
   AWS_REGION: us-east-1
   TF_WORKING_DIR: phase1-vpc-ec2
+  TF_VAR_my_ip: ${{ secrets.MY_IP }}
+  TF_VAR_public_key: ${{ secrets.PUBLIC_KEY }}
 
 jobs:
   plan:

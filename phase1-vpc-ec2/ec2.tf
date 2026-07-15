@@ -41,15 +41,14 @@ resource "aws_security_group" "web" {
 
 # --- Key pair for SSH access ---
 # Generate locally first: ssh-keygen -t ed25519 -f study-key -N ""
-variable "public_key_path" {
-  description = "Path to your SSH public key file"
+variable "public_key" {
+  description = "The public key material for SSH access"
   type        = string
-  default     = "study-key.pub"
 }
 
 resource "aws_key_pair" "study" {
   key_name   = "study-key"
-  public_key = file(var.public_key_path)
+  public_key = var.public_key
 }
 
 # --- Latest Amazon Linux 2023 AMI, so this stays current automatically ---

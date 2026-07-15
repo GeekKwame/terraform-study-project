@@ -1,6 +1,13 @@
 terraform {
   required_version = ">= 1.5.0"
 
+  backend "s3" {
+    bucket         = "jemed-s3-bucket"
+    key            = "phase1/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "jemed-lockin-table"
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -18,3 +25,4 @@ variable "aws_region" {
   type        = string
   default     = "us-east-1"
 }
+
