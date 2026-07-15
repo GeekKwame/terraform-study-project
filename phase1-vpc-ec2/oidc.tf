@@ -56,7 +56,7 @@ resource "aws_iam_role" "github_actions_terraform" {
 
             # lets merges to main assume this role for apply.
 
-            "token.actions.githubusercontent.com:sub" = "repo:YOUR_GITHUB_USERNAME/terraform-study-project:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "repo:GeekKwame/terraform-study-project:ref:refs/heads/main"
 
           }
 
