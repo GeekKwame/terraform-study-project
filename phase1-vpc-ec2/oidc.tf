@@ -30,9 +30,10 @@ resource "aws_iam_role" "github_actions_terraform" {
           StringLike = {
             # IMPORTANT: replace with your actual GitHub org/user and repo name.
             # Allowing both main branch runs and pull requests to assume this role.
+            # Using wildcards (*) to support GitHub's new OIDC immutable subject format (repo:owner@id/repo@id)
             "token.actions.githubusercontent.com:sub" = [
-              "repo:GeekKwame/terraform-study-project:ref:refs/heads/main",
-              "repo:GeekKwame/terraform-study-project:pull_request"
+              "repo:GeekKwame*/terraform-study-project*:ref:refs/heads/main",
+              "repo:GeekKwame*/terraform-study-project*:pull_request"
             ]
           }
         }
