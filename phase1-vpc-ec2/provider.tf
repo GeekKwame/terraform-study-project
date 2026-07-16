@@ -2,10 +2,10 @@ terraform {
   required_version = ">= 1.5.0"
 
   backend "s3" {
-    bucket         = "jemed-s3-bucket"
+    bucket         = "jemimah-eddie-s3-164824552172-us-east-1-an"
     key            = "phase1/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "jemed-lockin-table"
+    dynamodb_table = "jemimah-edmund-tb"
   }
 
   required_providers {
