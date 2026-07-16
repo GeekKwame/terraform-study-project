@@ -58,12 +58,18 @@ resource "aws_iam_role_policy" "terraform_permissions" {
           "ec2:*",
           "iam:GetRole",
           "iam:PassRole",
+          "iam:GetOpenIDConnectProvider",
+          "iam:ListOpenIDConnectProviders",
+          "iam:GetRolePolicy",
+          "iam:ListRolePolicies",
           "s3:GetObject",
           "s3:PutObject",
           "s3:ListBucket",
+          "s3:GetBucketLocation",
           "dynamodb:GetItem",
           "dynamodb:PutItem",
-          "dynamodb:DeleteItem"
+          "dynamodb:DeleteItem",
+          "dynamodb:DescribeTable"
         ]
         Resource = "*"
       }
