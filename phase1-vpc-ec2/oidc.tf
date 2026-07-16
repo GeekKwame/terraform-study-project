@@ -29,9 +29,11 @@ resource "aws_iam_role" "github_actions_terraform" {
           }
           StringLike = {
             # IMPORTANT: replace with your actual GitHub org/user and repo name.
-            # Restricting to main branch keeps PR runs read-only (plan) and only
-            # lets merges to main assume this role for apply.
-            "token.actions.githubusercontent.com:sub" = "repo:GeekKwame/terraform-study-project:ref:refs/heads/main"
+            # Allowing both main branch runs and pull requests to assume this role.
+            "token.actions.githubusercontent.com:sub" = [
+              "repo:GeekKwame/terraform-study-project:ref:refs/heads/main",
+              "repo:GeekKwame/terraform-study-project:pull_request"
+            ]
           }
         }
       }
